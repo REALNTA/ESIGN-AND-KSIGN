@@ -1,300 +1,266 @@
-
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eSign Download</title>
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --card-bg: #f9f9f9;
-            --button-bg: #007bff;
-            --button-text: #ffffff;
-            --border-color: #e0e0e0;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #ffffff;
-            --card-bg: #1e1e1e;
-            --button-bg: #0056b3;
-            --button-text: #ffffff;
-            --border-color: #333333;
-            --shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        header img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: var(--shadow);
-            margin-bottom: 10px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-            color: var(--text-color);
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: var(--card-bg);
-            padding: 10px;
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        nav button {
-            background: none;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            cursor: pointer;
-            font-size: 1em;
-            color: var(--text-color);
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-        }
-        nav button:hover, nav button.active {
-            background-color: var(--button-bg);
-            color: var(--button-text);
-        }
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 1000;
-        }
-        section {
-            display: none;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        section.active {
-            display: block;
-        }
-        .item {
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .item:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-        .item img {
-            width: 60px;
-            height: 60px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-        .item h3 {
-            margin: 0 0 10px 0;
-            color: var(--text-color);
-        }
-        .download-btn {
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-            margin-left: auto;
-        }
-        .download-btn:hover {
-            background-color: #0056b3;
-        }
-        .update-text {
-            text-align: center;
-            font-size: 1.5em;
-            color: var(--text-color);
-            padding: 40px;
-        }
-        @media (max-width: 768px) {
-            .item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .item img {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            .download-btn {
-                margin-left: 0;
-                margin-top: 10px;
-            }
-            nav {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSign & kSign Downloads</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
+
+body {
+    background: linear-gradient(270deg,#111,#1a001a,#111);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+    color:#fff;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+header {
+    text-align:center;
+    padding:30px 0 15px;
+    border-radius:20px;
+}
+
+header img {
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:3px solid #ff073a;
+    box-shadow:0 0 20px #ff073a,0 0 40px #ff073a inset;
+    animation: glowPulse 2s infinite alternate;
+}
+
+header h1 {
+    margin-top:15px;
+    color:#ff073a;
+    font-size:2.2em;
+    text-shadow:0 0 10px #ff073a,0 0 20px #ff073a,0 0 30px #ff073a;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse{
+    0%{text-shadow:0 0 10px #ff073a,0 0 20px #ff073a,0 0 30px #ff073a;}
+    50%{text-shadow:0 0 20px #ff4a6a,0 0 40px #ff4a6a,0 0 60px #ff4a6a;}
+    100%{text-shadow:0 0 10px #ff073a,0 0 20px #ff073a,0 0 30px #ff073a;}
+}
+
+.tabs {
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    border-radius:15px;
+}
+
+.tab {
+    padding:15px 30px;
+    cursor:pointer;
+    margin:5px 10px;
+    border:2px solid #ff073a;
+    border-radius:15px;
+    color:#ff073a;
+    transition: all 0.3s ease;
+    text-transform:uppercase;
+    font-weight:bold;
+    box-shadow:0 0 5px #ff073a;
+}
+
+.tab:hover, .tab.active {
+    background-color:#ff073a;
+    color:#111;
+    box-shadow:0 0 30px #ff073a,0 0 50px #ff073a inset;
+}
+
+.tab-content {
+    display:none;
+    max-width:950px;
+    margin:0 auto 50px;
+    padding:25px;
+    border:2px solid #ff073a;
+    border-radius:20px;
+    box-shadow:0 0 30px #ff073a,0 0 50px #ff073a inset;
+    background: rgba(255,0,58,0.15);
+    animation: glowPulse 2s infinite alternate;
+}
+
+.tab-content.active{
+    display:block;
+}
+
+.item {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
+    margin-bottom:12px;
+    border:1px solid #ff073a;
+    border-radius:15px;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    background-color: rgba(255,7,58,0.25);
+    box-shadow:0 0 20px #ff073a,0 0 40px #ff4a6a inset;
+    transform:scale(1.02);
+}
+
+.item img {
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    margin-right:15px;
+    border:2px solid #ff073a;
+    box-shadow:0 0 10px #ff073a;
+}
+
+.item span {
+    flex:1;
+    color:#ff073a;
+    font-weight:bold;
+    text-shadow:0 0 5px #ff073a,0 0 10px #ff4a6a;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.download-btn {
+    padding:10px 18px;
+    background-color:#ff073a;
+    color:#111;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:all 0.3s ease;
+    text-decoration:none;
+    box-shadow:0 0 10px #ff073a;
+}
+
+.download-btn:hover{
+    background-color:#ff4a6a;
+    box-shadow:0 0 25px #ff073a,0 0 40px #ff4a6a inset;
+    transform:scale(1.05);
+}
+
+h2 {
+    color:#ff073a;
+    text-shadow:0 0 10px #ff073a,0 0 20px #ff073a,0 0 30px #ff4a6a;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+</style>
 </head>
-<body data-theme="light">
-    <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
-    
-    <header>
-        <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Header Image">
-        <h1>ESIGN AND KSIGN</h1>
-    </header>
-    
-    <nav>
-        <button onclick="showSection('esign')" class="active">ESIGN</button>
-        <button onclick="showSection('dns')">DNS</button>
-        <button onclick="showSection('certificates')">CERTIFICATES</button>
-        <button onclick="showSection('ksign')">KSIGN</button>
-    </nav>
-    
-    <section id="esign" class="active">
+<body>
 
-        <!-- MỤC MỚI - ĐẶT Ở ĐẦU TIÊN -->
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign Etisalat - Emirates Telecommunications Corporation✅</h3>
-            </div>
-            <a href="https://authtool.app/app-store/RT1p4Zqyyz" class="download-btn" target="_blank">Download</a>
-        </div>
+<header>
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Profile">
+    <h1>ANGAMING IOROID</h1>
+</header>
 
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign China National Heavy Duty Truck Group Co., Ltd.</h3>
-            </div>
-            <a href="https://authtool.app/app-store/jlkCxhGdT1" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign Guangzhou Huahan Educational & Technology Co.,Ltd</h3>
-            </div>
-            <a href="https://authtool.app/app-store/2SdmML0Agz" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign China Telecommunications Corporation</h3>
-            </div>
-            <a href="https://authtool.app/app-store/Ht8Am7Izuz" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign GLOBAL TAKEOFF, INC</h3>
-            </div>
-            <a href="https://authtool.app/app-store/7nYVuuSYr1" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign Tianjin University of Commerce</h3>
-            </div>
-            <a href="https://authtool.app/app-store/mr2CNCGuw5" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</h3>
-            </div>
-            <a href="https://authtool.app/app-store/fPYx0aUqZ6" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign VIETTEL GROUP</h3>
-            </div>
-            <a href="https://authtool.app/app-store/gdxphzqVMF" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign CHIBA INSTITUTE OF TECHNOLOGY</h3>
-            </div>
-            <a href="https://authtool.app/app-store/c52GfkeM7T" class="download-btn" target="_blank">Download</a>
-        </div>
-        <div class="item">
-            <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="Icon">
-            <div>
-                <h3>ESign Beijing Esensoft Co., Ltd</h3>
-            </div>
-            <a href="https://authtool.app/app-store/WzoVlAzfSa" class="download-btn" target="_blank">Download</a>
-        </div>
-    </section>
-    
-    <section id="dns">
-        <div class="item">
-            <div>
-                <h3>🔰DNS V3 ( MY DNS )</h3>
-            </div>
-            <a href="https://release-assets.githubusercontent.com/github-production-release-asset/1097445216/ca877954-6a46-4d1a-be72-ff25851c4820?sp=r&sv=2018-11-09&sr=b&spr=https&se=2025-11-18T15%3A45%3A44Z&rscd=attachment%3B+filename%3Dsigned_DNS.V3.mobileconfig&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2025-11-18T14%3A45%3A31Z&ske=2025-11-18T15%3A45%3A44Z&sks=b&skv=2018-11-09&sig=MpBTmv6KcOkOeT0bBPOwYY4Isi5PVTIjRRw%2FtrCl2%2B4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc2MzQ3Nzk2OSwibmJmIjoxNzYzNDc3NjY5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Gb-1ur_ttjqgjS9TdXAqb1uXno6InLt72Ya6wRg5i2U&response-content-disposition=attachment%3B%20filename%3Dsigned_DNS.V3.mobileconfig&response-content-type=application%2Foctet-stream" class="download-btn" download>Download</a>
-        </div>
-        <div class="item">
-            <div>
-                <h3>🔰DNS BY WSF</h3>
-            </div>
-            <a href="https://wsfteam.xyz/files/configurationprofiles/WSF-CP144.mobileconfig" class="download-btn" download>Download</a>
-        </div>
-    </section>
-    
-    <section id="certificates">
-        <div class="item">
-            <div>
-                <h3>📜FILE ZIP CERT ESIGN AND KSIGN</h3>
-            </div>
-            <a href="https://raw.githubusercontent.com/esigncert/khoindvn/refs/heads/main/document/DNS/Certs-Khoindvn.zip" class="download-btn" download>Download</a>
-        </div>
-    </section>
-    
-    <section id="ksign">
-        <div class="update-text">ĐANG UPDATE</div>
-    </section>
-    
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            event.target.classList.add('active');
-        }
-        
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        }
-    </script>
+<div class="tabs">
+    <div class="tab active" data-tab="esign">ESIGN</div>
+    <div class="tab" data-tab="certificates">CERTIFICATES</div>
+    <div class="tab" data-tab="dns">DNS</div>
+    <div class="tab" data-tab="ksign">KSIGN</div>
+</div>
+
+<!-- ESIGN CONTENT -->
+<div id="esign" class="tab-content active">
+<h2>ESIGN Downloads</h2>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>Etisalat - Emirates Telecommunications Corporation</span>
+    <a class="download-btn" href="https://authtool.app/app-store/RT1p4Zqyyz" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>China National Heavy Duty Truck Group Co., Ltd.</span>
+    <a class="download-btn" href="https://authtool.app/app-store/jlkCxhGdT1" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>Guangzhou Huahan Educational & Technology Co.,Ltd</span>
+    <a class="download-btn" href="https://authtool.app/app-store/2SdmML0Agz" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>China Telecommunications Corporation</span>
+    <a class="download-btn" href="https://authtool.app/app-store/Ht8Am7Izuz" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>GLOBAL TAKEOFF, INC</span>
+    <a class="download-btn" href="https://authtool.app/app-store/7nYVuuSYr1" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>Tianjin University of Commerce</span>
+    <a class="download-btn" href="https://authtool.app/app-store/mr2CNCGuw5" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE</span>
+    <a class="download-btn" href="https://authtool.app/app-store/fPYx0aUqZ6" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>VIETTEL GROUP</span>
+    <a class="download-btn" href="https://authtool.app/app-store/gdxphzqVMF" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>CHIBA INSTITUTE OF TECHNOLOGY</span>
+    <a class="download-btn" href="https://authtool.app/app-store/c52GfkeM7T" target="_blank">DOWNLOAD</a>
+</div>
+<div class="item">
+    <img src="https://khoindvn.io.vn/img/pf/profile-pic.png" alt="icon">
+    <span>Beijing Esensoft Co., Ltd</span>
+    <a class="download-btn" href="https://authtool.app/app-store/WzoVlAzfSa" target="_blank">DOWNLOAD</a>
+</div>
+</div>
+
+<!-- CERTIFICATES CONTENT -->
+<div id="certificates" class="tab-content">
+<h2>CERTIFICATES Downloads</h2>
+<div class="item">
+    <span>📜 CERT ESIGN AND KSIGN (FILE ZIP)</span>
+    <a class="download-btn" href="https://raw.githubusercontent.com/esigncert/khoindvn/refs/heads/main/document/DNS/Certs-Khoindvn.zip" target="_blank">DOWNLOAD</a>
+</div>
+</div>
+
+<!-- DNS CONTENT -->
+<div id="dns" class="tab-content">
+<h2>DNS Downloads</h2>
+<div class="item">
+    <span>🔰 DNS V3 (MY DNS)</span>
+    <a class="download-btn" href="https://release-assets.githubusercontent.com/github-production-release-asset/1097445216/ca877954-6a46-4d1a-be72-ff25851c4820?sp=r&sv=2018-11-09&sr=b&spr=https&se=2025-11-18T15%3A45%3A44Z&rscd=attachment%3B+filename%3Dsigned_DNS.V3.mobileconfig&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2025-11-18T14%3A45%3A31Z&ske=2025-11-18T15%3A45%3A44Z&sks=b&skv=2018-11-09&sig=MpBTmv6KcOkOeT0bBPOwYY4Isi5PVTIjRRw%2FtrCl2%2B4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc2MzQ3Nzk2OSwibmJmIjoxNzYzNDc3NjY5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.Gb-1ur_ttjqgjS9TdXAqb1xno6InLt72Ya6wRg5i2U&response-content-disposition=attachment%3B%20filename%3Dsigned_DNS.V3.mobileconfig&response-content-type=application%2Foctet-stream" target="_blank">DOWNLOAD</a>
+</div>
+</div>
+
+<!-- KSIGN CONTENT -->
+<div id="ksign" class="tab-content">
+<h2>KSIGN</h2>
+<p style="text-align:center; font-size:1.5em; color:#ff073a; text-shadow:0 0 10px #ff073a;">ADMIN ĐANG UPDATE !</p>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+tabs.forEach(tab=>{
+    tab.addEventListener('click',()=>{
+        tabs.forEach(t=>t.classList.remove('active'));
+        contents.forEach(c=>c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+});
+</script>
+
 </body>
 </html>
